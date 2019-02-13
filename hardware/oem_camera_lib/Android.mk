@@ -5,19 +5,19 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES	:= \
 	oem_test_camera.c \
 	oem_camera_hw_interface.c \
-  oem_camera_hw_display.c \
-  oem_camera_v4l2_interface.c
+  	oem_camera_hw_display.c \
+  	oem_camera_v4l2_interface.c
 
 LOCAL_C_INCLUDES += \
 	$(TOP)/frameworks/native/include	\
-	$(TOP)/system/core/include				\
+	$(TOP)/system/core/include	\
 	$(TOP)/hardware/libhardware/include	\
 	$(TOP)/vendor/library/video_api/src	\
 	$(TOP)/vendor/library/video_api/src/include	\
 	$(TOP)/vendor/library/video_api/src/include/linux \
 	$(TOP)/external/libdrm	\
 	$(TOP)/hardware/gralloc \
-	$(TOP)/hardware/camera/nx-scaler	\
+	$(TOP)/hardware/oem_camera_lib/scaler	\
 	$(TOP)/hardware/renderer/include \
 	$(TOP)/hardware/v4l2
 
