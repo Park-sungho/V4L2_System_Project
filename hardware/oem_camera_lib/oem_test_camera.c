@@ -60,7 +60,7 @@ void reg_signal( void ) {
 	signal(SIGABRT, handler_signal);
 	signal(SIGSEGV, handler_signal);
  	signal(SIGSTOP, handler_signal);
-  signal(SIGINT,  handler_signal);
+ 	signal(SIGINT,  handler_signal);
 	signal(SIGTERM, handler_signal);
 }
 
@@ -74,43 +74,43 @@ void cb_preview_func(void *src_buf, unsigned long preview_size) {
 }
 
 int main(int argc, char *argv[]) {
-	CameraHALDevice_t camera;
+    CameraHALDevice_t camera;
 
-	char buf[INPUT_DATA_LENGTH_MAX];
-	int32_t i = 0;
-	int32_t len = sizeof(appMenu) / sizeof(APP_MENU);
+    char buf[INPUT_DATA_LENGTH_MAX];
+    int32_t i = 0;
+    int32_t len = sizeof(appMenu) / sizeof(APP_MENU);
 
-	reg_signal();
+    reg_signal();
 	
-  printf("Camera HAL Test application\n);
-  printf("1 : camera init\n");
-  printf("2 : camera start\n");
-  printf("3 : camera stop\n");
+    printf("Camera HAL Test application\n);
+    printf("1 : camera init\n");
+    printf("2 : camera start\n");
+    printf("3 : camera stop\n");
   
-	while(1)
-	{
-		printf("Input:");
-		fgets(buf, sizeof(buf), stdin);
+    while(1)
+    {
+        printf("Input:");
+        fgets(buf, sizeof(buf), stdin);
 
-		if( 0x0A == buf[0] ) {
-			continue;
-		} else if( 'x' == buf[0] ) {
-			printf("Exit\n");
-			break;
-		} else if( '1' == buf[0] ) {
-			camera_init();
-			break;
-		} else if( '2' == buf[0] ) {
-			camera_ctrl(0);
-      set_callback_preview(cb_preview_func);
+        if( 0x0A == buf[0] ) {
+            continue;
+        } else if( 'x' == buf[0] ) {
+            printf("Exit\n");
+            break;
+        } else if( '1' == buf[0] ) {
+            camera_init();
+            break;
+        } else if( '2' == buf[0] ) {
+            camera_ctrl(0);
+            set_callback_preview(cb_preview_func);
       
-      // stream on
-      camera_ctrl(2);
-			break;
-		} else if( '3' == buf[0] ) {
-			camera_stop();
-			break;
-		} 
+            // stream on
+            camera_ctrl(2);
+            break;
+        } else if( '3' == buf[0] ) {
+            camera_stop();
+            break;
+    } 
     return 0;
 }
 
