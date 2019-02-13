@@ -57,11 +57,11 @@ void handler_signal(int32_t signal) {
 }
 
 void reg_signal( void ) {
-	signal(SIGABRT, handler_signal);
-	signal(SIGSEGV, handler_signal);
- 	signal(SIGSTOP, handler_signal);
- 	signal(SIGINT,  handler_signal);
-	signal(SIGTERM, handler_signal);
+    signal(SIGABRT, handler_signal);
+    signal(SIGSEGV, handler_signal);
+    signal(SIGSTOP, handler_signal);
+    signal(SIGINT,  handler_signal);
+    signal(SIGTERM, handler_signal);
 }
 
 void cb_preview_func(void *src_buf, unsigned long preview_size) {
